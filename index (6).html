@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>U.S. Coin Album — Official Image Edition</title>
+<style>
+:root{--navy:#17384d;--paper:#f0eee7;--page:#fffdf7;--line:#d5d0c3;--ink:#26333b;--green:#286a47}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.4 system-ui,Arial,sans-serif}
+header{background:var(--navy);color:white;padding:14px 18px}main,header>div,footer{max-width:1250px;margin:auto}h1{margin:0;font-size:clamp(1.6rem,4vw,2.3rem)}header p{display:none}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}nav button{padding:10px 16px;border:1px solid #ffffff77;border-radius:5px;background:transparent;color:white;font-weight:700;cursor:pointer}nav button.active{background:white;color:var(--navy)}
+main{padding:18px}.notice{padding:12px 14px;border:1px solid #dfc982;background:#fff5d7;border-radius:6px;margin-bottom:16px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px}input,select,button{font:inherit}input,select{padding:9px;border:1px solid var(--line);border-radius:5px;background:white}input{flex:1;min-width:190px}
+.summary{display:flex;gap:20px;flex-wrap:wrap;padding:10px 13px;background:var(--page);border:1px solid var(--line);margin-bottom:14px}.summary strong{color:var(--navy)}
+.yearpage{background:var(--page);border:1px solid var(--line);padding:10px;margin:10px 0;box-shadow:0 2px 5px #00000008}.yearhead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #b9b2a2;padding-bottom:5px;margin-bottom:8px}.yearhead h2{margin:0;font-size:1rem}.yearhead small{color:#66737a}.decadegrid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px}.slot .yearlabel{font-size:.66rem;font-weight:800;color:var(--navy);margin-bottom:3px}.slot{padding:4px 3px 5px}.slot.have{padding:3px 2px 4px}.coinimg{height:54px}.coinimg img{width:50px;height:50px}.missing-image{width:46px;height:46px;font-size:.48rem}.slot h3{font-size:.66rem}.design{font-size:.59rem;min-height:22px}.mint{font-size:.57rem}.source{font-size:.54rem}
+.grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px}.slot{border:1px solid #d9d4c8;background:#f8f6f0;min-width:0;padding:5px 4px 6px;text-align:center;cursor:pointer;position:relative}.slot:hover{border-color:#81949d}.slot.have{background:#edf6ed;border:2px solid var(--green);padding:4px 3px 5px}.slot.have:after{content:"✓ COLLECTED";display:block;color:var(--green);font-weight:800;font-size:.58rem;margin-top:3px}.coinimg{height:68px;display:flex;align-items:center;justify-content:center;margin-bottom:3px}.coinimg img{width:64px;height:64px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 2px 2px #0002)}.slot h3{font-size:.72rem;margin:0 0 3px}.design{font-size:.65rem;min-height:25px;color:#4d5c64;line-height:1.2}.mint{font-size:.62rem;color:#64717a;margin-top:2px}.source{font-size:.6rem;display:inline-block;margin-top:3px;color:#175d83}.missing-image{width:58px;height:58px;border:1px dashed #b7b0a2;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#706c63;font-size:.54rem;padding:4px;line-height:1.1}
+.empty{background:white;border:1px dashed var(--line);padding:30px;text-align:center;color:#68747b}footer{padding:0 18px 30px;color:#65717a;font-size:.85rem}
+#backTop{position:fixed;right:16px;bottom:16px;z-index:9999;display:none;border:0;border-radius:999px;padding:11px 15px;background:var(--navy);color:#fff;font-weight:800;box-shadow:0 3px 12px #0003;cursor:pointer}#backTop.show{display:block}#backTop:focus-visible{outline:3px solid #e5b94c;outline-offset:3px}
+@media(max-width:1100px){.decadegrid{grid-template-columns:repeat(8,minmax(0,1fr))}}@media(max-width:800px){.decadegrid{grid-template-columns:repeat(6,minmax(0,1fr))}}@media(max-width:600px){main{padding:8px}.decadegrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.coinimg{height:48px}.coinimg img{width:44px;height:44px}.yearpage{padding:7px;margin:8px 0}.yearhead{margin-bottom:7px}.tools{gap:5px}.summary{gap:10px;padding:8px}}
+</style></head><body>
+<header><div><h1>My U.S. Coin Album</h1>
+<nav><button class="active" data-tab="quarters">Quarters</button><button data-tab="dimes">Dimes</button><button data-tab="nickels">Nickels</button><button data-tab="pennies">Pennies</button></nav></div></header>
+<main>
+<div class="notice"><strong>Image catalog status:</strong> Official U.S. Mint photos are currently mapped for the five 1999 State Quarter reverses and four 2004–2005 Westward Journey nickel reverses. Other slots are labeled when a photo is not yet mapped; no placeholder coin pictures are used. Dimes: 1965–1967 have no mint mark; 1968–1979 have blank Philadelphia and D Denver issues; 1980 onward have P and D. Proof-only S and special W issues are excluded from this circulation album. The Bicentennial quarter is dated 1776–1976 (there is no separate 1975-dated quarter).</div>
+<div class="tools"><input id="search" type="search" placeholder="Search by year, design, or mint mark"><select id="filter"><option value="all">All slots</option><option value="missing">Missing</option><option value="have">Collected</option></select></div>
+<div class="summary"><span><strong id="nHave">0</strong> collected</span><span><strong id="nTotal">0</strong> slots on this page</span><span><strong id="pct">0%</strong> complete</span></div>
+<div id="album"></div>
+</main><button id="backTop" type="button" aria-label="Back to top">↑ Back to top</button><footer>Coin photos are served from official U.S. Mint pages. A photo represents the design; P and D entries remain separate because the mint mark is on the coin itself. Collection ticks save in this browser.</footer>
+<script>
+const mintURL="https://www.usmint.gov/learn/coins-and-medals/circulating-coins";
+const image={
+"1776–1976 Bicentennial quarter — colonial drummer":"",
+"Delaware":"https://www.usmint.gov/learn/coins-and-medals/circulating-coins/quarter/50-state-quarters/delaware/_jcr_content/root/container_1426747781/imagegallerypdp/image.coreimg.jpeg/1741915542088/1999-50-state-quarters-coin-delaware-uncirculated-reverse.jpeg",
+"Pennsylvania":"https://www.usmint.gov/learn/coins-and-medals/circulating-coins/quarter/50-state-quarters/pennsylvania/_jcr_content/root/container_1426747781/imagegallerypdp/image.coreimg.jpeg/1741980655846/1999-50-state-quarters-coin-pennsylvania-uncirculated-reverse.jpeg",
+"New Jersey":"https://www.usmint.gov/learn/coins-and-medals/circulating-coins/quarter/50-state-quarters/new-jersey/_jcr_content/root/container_1426747781/imagegallerypdp/image.coreimg.jpeg/1741982007851/1999-50-state-quarters-coin-new-jersey-uncirculated-reverse.jpeg",
+"Georgia":"https://www.usmint.gov/learn/coins-and-medals/circulating-coins/quarter/50-state-quarters/georgia/_jcr_content/root/container_1426747781/imagegallerypdp/image.coreimg.jpeg/1741986750240/1999-50-state-quarters-coin-georgia-uncirculated-reverse.jpeg",
+"Connecticut":"https://www.usmint.gov/learn/coins-and-medals/circulating-coins/quarter/50-state-quarters/connecticut/_jcr_content/root/container_1426747781/imagegallerypdp/image.coreimg.jpeg/1742307820038/1999-50-state-quarters-coin-connecticut-uncirculated-reverse.jpeg",
+"Peace Medal":"https://www.usmint.gov/learn/coins-and-medals/circulating-coins/nickel/westward-journey-nickels/louisiana-purchase-peace-medal/_jcr_content/root/container_1426747781/imagegallerypdp/item_1741639161292.coreimg.jpeg/1741639829996/2004-westward-journey-nickel-series-louisiana-purchase-uncirculated-reverse.jpeg",
+"Keelboat":"https://www.usmint.gov/learn/coins-and-medals/circulating-coins/nickel/westward-journey-nickels/keelboat/_jcr_content/root/container_1426747781/imagegallerypdp/item_1741642139629.coreimg.jpeg/1741642235109/2004-westward-journey-nickel-series-keelboat-uncirculated-reverse.jpeg",
+"American Bison":"https://www.usmint.gov/learn/coins-and-medals/circulating-coins/nickel/westward-journey-nickels/american-bison/_jcr_content/root/container_1426747781/imagegallerypdp/item_1741707509250.coreimg.jpeg/1741710058216/2005-westward-journey-nickel-series-american-bison-uncirculated-reverse.jpeg",
+"Ocean in View":"https://www.usmint.gov/learn/coins-and-medals/circulating-coins/nickel/westward-journey-nickels/ocean-in-view/_jcr_content/root/container_1426747781/imagegallerypdp/item_1741715297513.coreimg.jpeg/1741715449058/2005-westward-journey-nickel-series-ocean-in-view-o-the-joy-uncirculated-reverse.jpeg"
+};
+const q1999=["Delaware","Pennsylvania","New Jersey","Georgia","Connecticut"];
+const nickels={2004:["Peace Medal","Keelboat"],2005:["American Bison","Ocean in View"]};
+const starts={quarters:1965,nickels:1938,dimes:1965,pennies:1909};
+const ends={quarters:2030,nickels:2030,dimes:2030,pennies:2030};
+const labels={quarters:"Quarter",nickels:"Nickel",dimes:"Dime",pennies:"Penny"};
+// Regular Lincoln-cent mint availability by date, based on annual issue records. "—" means no mint mark, not a P mark.
+let tab="quarters",have=JSON.parse(localStorage.getItem("coinAlbumOfficialImagesV3")||"{}");
+// Migrate prior dime checkmarks into the corrected mint-mark slots.
+for(let y=1965;y<=1967;y++){
+ const oldId=`dimes-${y}-Roosevelt dime-D`, newId=`dimes-${y}-Roosevelt dime-No mint mark (1965–1967)`;
+ if(have[oldId]&&!have[newId]) have[newId]=true;
+ delete have[oldId];
+}
+for(let y=1968;y<=1979;y++){
+ const oldP=`dimes-${y}-Roosevelt dime-P`, newBlank=`dimes-${y}-Roosevelt dime-—`;
+ if(have[oldP]&&!have[newBlank]) have[newBlank]=true;
+ delete have[oldP];
+}
+localStorage.setItem("coinAlbumOfficialImagesV3",JSON.stringify(have));
+function designData(){
+ let a=[];
+ const add=(denom,y,d,marks,src)=>marks.forEach(m=>a.push({year:y,design:d,mint:m,img:image[d]||"",id:`${denom}-${y}-${d}-${m}`,source:src||mintURL}));
+ if(tab==="quarters"){
+  const states={1999:["Delaware","Pennsylvania","New Jersey","Georgia","Connecticut"],2000:["Massachusetts","Maryland","South Carolina","New Hampshire","Virginia"],2001:["New York","North Carolina","Rhode Island","Vermont","Kentucky"],2002:["Tennessee","Ohio","Louisiana","Indiana","Mississippi"],2003:["Illinois","Alabama","Maine","Missouri","Arkansas"],2004:["Michigan","Florida","Texas","Iowa","Wisconsin"],2005:["California","Minnesota","Oregon","Kansas","West Virginia"],2006:["Nevada","Nebraska","Colorado","North Dakota","South Dakota"],2007:["Montana","Washington","Idaho","Wyoming","Utah"],2008:["Oklahoma","New Mexico","Arizona","Alaska","Hawaii"]};
+  const territories=["District of Columbia","Puerto Rico","Guam","American Samoa","U.S. Virgin Islands","Northern Mariana Islands"];
+  const aw={2022:["Maya Angelou","Dr. Sally Ride","Wilma Mankiller","Nina Otero-Warren","Anna May Wong"],2023:["Bessie Coleman","Edith Kanakaʻole","Eleanor Roosevelt","Jovita Idar","Maria Tallchief"],2024:["Rev. Dr. Pauli Murray","Patsy Takemoto Mink","Dr. Mary Edwards Walker","Celia Cruz","Zitkala-Ša"],2025:["Ida B. Wells","Juliette Gordon Low","Dr. Vera Rubin","Stacey Park Milbern","Althea Gibson"]};
+  const atb={2010:["Hot Springs","Yellowstone","Yosemite","Grand Canyon","Mount Hood"],2011:["Gettysburg","Glacier","Olympic","Vicksburg","Chickasaw"],2012:["El Yunque","Chaco Culture","Acadia","Hawaii Volcanoes","Denali"],2013:["White Mountain","Perry’s Victory","Great Basin","Fort McHenry","Mount Rushmore"],2014:["Great Smoky Mountains","Shenandoah","Arches","Great Sand Dunes","Everglades"],2015:["Homestead","Kisatchie","Blue Ridge Parkway","Bombay Hook","Saratoga"],2016:["Shawnee","Cumberland Gap","Harper’s Ferry","Theodore Roosevelt","Fort Moultrie"],2017:["Effigy Mounds","Frederick Douglass","Ozark Riverways","Ellis Island","George Rogers Clark"],2018:["Pictured Rocks","Apostle Islands","Voyageurs","Cumberland Island","Block Island"],2019:["Lowell","American Memorial Park","War in the Pacific","San Antonio Missions","Frank Church River of No Return"],2020:["National Park of American Samoa","Weir Farm","Salt River Bay","Marsh-Billings-Rockefeller","Tallgrass Prairie"]};
+  for(let y=1965;y<=2030;y++){
+   if(y===1975) continue;
+   if(y===1976){add(tab,y,"1776–1976 Bicentennial quarter — colonial drummer",["—","D"]);continue;}
+   if(states[y]){states[y].forEach(d=>add(tab,y,d,["Design"]));continue;}
+   if(y===2009){territories.forEach(d=>add(tab,y,d,["Design"]));continue;}
+   if(atb[y]){atb[y].forEach(d=>add(tab,y,d,["Design"]));continue;}
+   if(y===2021){add(tab,y,"Tuskegee Airmen National Historic Site",["Design"]);add(tab,y,"Crossing the Delaware",["P","D"]);continue;}
+   if(aw[y]){aw[y].forEach(d=>add(tab,y,d,["P","D"]));continue;}
+   if(y>=2026){continue;} // Do not invent future circulation designs.
+   add(tab,y,"Washington quarter",y<=1967?["No mint mark (1965–1967)"]:y<=1979?["—","D"]:["P","D"]);
+  }
+ }else if(tab==="nickels"){
+  for(let y=1938;y<=2025;y++){
+   let ds=nickels[y]||[y<=2003?"Jefferson / Monticello nickel":y===2006?"Jefferson / Monticello reverse":"Jefferson nickel — image catalog pending"];
+   ds.forEach(d=>add(tab,y,d,y<=1967?["No mint mark (1938–1967)"]:["P","D"],y===2004||y===2005?"https://www.usmint.gov/learn/coins-and-medals/circulating-coins/nickel/westward-journey-nickels":mintURL));
+  }
+ }else if(tab==="dimes"){
+  for(let y=1965;y<=2025;y++){let marks=y<=1967?["No mint mark (1965–1967)"]:y<=1979?["—","D"]:["P","D"];add(tab,y,"Roosevelt dime",marks);}
+ }else{
+  for(let y=1909;y<=2025;y++){
+   let d=y<=1958?"Lincoln Wheat cent":y<=2008?"Lincoln Memorial cent":y===2009?"Lincoln Bicentennial cent — four reverse designs":y<=2025?"Union Shield cent":"";
+   let marks=[];
+   if(y<=1958){marks.push("—");if(y>=1911&&y!==1921&&y!==1923)marks.push("D");if(y>=1909&&y<=1955&&y!==1922&&!(y>=1932&&y<=1934))marks.push("S");}
+   else if(y<=1964)marks=["—","D"];
+   else if(y<=1967)marks=["No mark (1965–67)"];
+   else if(y<=1974)marks=["—","D","S"];
+   else marks=["—","D"];
+   if(y===2017)marks=["P","D"];
+   if(y===2009){["Birth and Early Childhood","Formative Years","Professional Life","Presidency"].forEach(des=>add(tab,y,des,marks));}
+   else add(tab,y,d,marks);
+  }
+ }
+ return a;
+}
+function render(){
+ let q=document.getElementById("search").value.toLowerCase().trim(),filter=document.getElementById("filter").value;
+ let all=designData(),list=all.filter(c=>(!q||`${c.year} ${c.design} ${c.mint}`.toLowerCase().includes(q))&&(filter==="all"||(filter==="have"&&have[c.id])||(filter==="missing"&&!have[c.id])));
+ document.getElementById("nHave").textContent=all.filter(c=>have[c.id]).length;document.getElementById("nTotal").textContent=all.length;document.getElementById("pct").textContent=Math.round(all.filter(c=>have[c.id]).length/Math.max(1,all.length)*100)+"%";
+ let groups={};list.forEach(c=>{let decade=c.year<1970?"1965–1969":`${Math.floor(c.year/10)*10}–${Math.floor(c.year/10)*10+9}`;(groups[decade]||=[]).push(c)});let root=document.getElementById("album");
+ if(!list.length){root.innerHTML='<div class="empty">No slots match your search.</div>';return}
+ root.innerHTML=Object.entries(groups).map(([dec,cs])=>`<section class="yearpage"><div class="yearhead"><h2>${dec}</h2><small>${cs.length} slots</small></div><div class="decadegrid">${cs.map(c=>`<article class="slot ${have[c.id]?"have":""}" data-id="${encodeURIComponent(c.id)}" role="button" tabindex="0" aria-pressed="${!!have[c.id]}"><div class="yearlabel">${c.year}</div><div class="coinimg">${c.img?`<img src="${c.img}" alt="Official U.S. Mint ${c.year} ${c.design} reverse" loading="lazy">`:`<div class="missing-image">Official coin image<br>not mapped yet</div>`}</div><h3>${c.design}</h3><div class="design">${c.mint==="Design"?"One slot per design":c.mint==="P"?"P · Philadelphia":c.mint==="D"?"D · Denver":c.mint==="S"?"S · San Francisco":c.mint==="—"?"Philadelphia · no mark":c.mint}</div><a class="source" href="${c.source}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Source ↗</a></article>`).join("")}</div></section>`).join("");
+ root.querySelectorAll(".slot").forEach(el=>{let toggle=()=>{let id=decodeURIComponent(el.dataset.id);have[id]?delete have[id]:have[id]=true;localStorage.setItem("coinAlbumOfficialImagesV3",JSON.stringify(have));render()};el.addEventListener("click",toggle);el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle()}})});
+}
+document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>{tab=b.dataset.tab;document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("active",x===b));render()}));
+document.getElementById("search").addEventListener("input",render);document.getElementById("filter").addEventListener("change",render);
+render();
+const backTop=document.getElementById("backTop");
+window.addEventListener("scroll",()=>backTop.classList.toggle("show",window.scrollY>280),{passive:true});
+backTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+</script></body></html>
